@@ -815,7 +815,6 @@ var addToComposer = function addToComposer(composer) {
     var discussion = (_this$composer$body = this.composer.body) == null || (_this$composer$body = _this$composer$body.attrs) == null ? void 0 : _this$composer$body.discussion;
 
     // @ts-ignore
-    console.log(discussion);
     var canStartPoll = (_ref = (discussion == null ? void 0 : discussion.canStartPoll()) || (discussion == null ? void 0 : discussion.canRename())) != null ? _ref : flarum_forum_app__WEBPACK_IMPORTED_MODULE_0___default().forum.canStartPolls();
     if (canStartPoll) {
       items.add('polls', m("a", {

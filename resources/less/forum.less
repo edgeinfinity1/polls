@@ -144,11 +144,25 @@
     align-items: start;
     margin-top: 15px;
 
+    [data-selected] {
+        .PollAnswer when (@fof-polls-options-color-blend = true) {
+          &-checkbox,
+          &-text {
+            & when (@config-dark-mode =true) {
+              mix-blend-mode: difference;
+            }
+    
+            & when (@config-dark-mode =false) {
+              mix-blend-mode: darken;
+            }
+          }
+        }
+    }
     .PollAnswer when (@fof-polls-options-color-blend = true) {
       &-checkbox,
       &-text {
         & when (@config-dark-mode =true) {
-          mix-blend-mode: difference;
+          mix-blend-mode: lighten;
         }
 
         & when (@config-dark-mode =false) {
@@ -156,6 +170,7 @@
         }
       }
     }
+
   }
 
   .Poll-sticky {
@@ -278,7 +293,7 @@
     align-items: flex-start;
 
     &:hover {
-      cursor: pointer;
+      cursor: default;
     }
 
     .PollAnswer-input[disabled] {
@@ -342,6 +357,10 @@
     margin-bottom: 0;
     position: relative;
     z-index: 2;
+
+    &:hover {
+        cursor: pointer;
+    }
 
     input[type="checkbox"] {
       position: absolute;
