@@ -40,7 +40,8 @@ export const addToComposer = (composer: ComponentClass) => {
     const discussion = this.composer.body?.attrs?.discussion;
 
     // @ts-ignore
-    const canStartPoll = discussion?.canStartPoll() ?? app.forum.canStartPolls();
+    console.log(discussion);
+    const canStartPoll = (discussion?.canStartPoll() || discussion?.canRename()) ?? app.forum.canStartPolls();
 
     if (canStartPoll) {
       items.add(
